@@ -151,6 +151,11 @@ if MODE and CHANGES_FLAG:
                 print("clearing screen...")
                 print("look at this cool artwork in the meantime...")
                 print(bat3)
+                print("I am Vengeance...")
+                time.sleep(1)
+                print("I am the Night...")
+                time.sleep(1)
+                print("I am Batman...")
                 time.sleep(5)
                 os.system("cls")
             elif clean_flag == 'n':
