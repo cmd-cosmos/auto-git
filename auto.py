@@ -149,7 +149,9 @@ if MODE and CHANGES_FLAG:
             clean_flag = input("would you like to clear screen[y/n]: ").lower().strip()
             if clean_flag == 'y':
                 print("clearing screen...")
-                time.sleep(1)
+                print("look at this cool artwork in the meantime...")
+                print(bat3)
+                time.sleep(5)
                 os.system("cls")
             elif clean_flag == 'n':
                 art_flag = input("would you like to look at some cool art[y/n]: ").lower().strip()
