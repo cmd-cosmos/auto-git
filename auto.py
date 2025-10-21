@@ -13,7 +13,7 @@ import time
 import os
 import sys
 import subprocess
-from art import bat2
+from art import bat2, bat3
 
 print(bat2)
 
@@ -151,8 +151,17 @@ if MODE and CHANGES_FLAG:
                 print("clearing screen...")
                 time.sleep(1)
                 os.system("cls")
-            else:
-                print("\nsequence complete...")
+            elif clean_flag == 'n':
+                art_flag = input("would you like to look at some cool art[y/n]: ").lower().strip()
+                if art_flag == 'y':
+                    print("\n"*100)
+                    print(bat3)
+                    print("I am Batman...")
+                    time.sleep(1)
+                    sys.exit()
+                else:
+                    print("\nsequence complete...")
+                    print(bat3)
         else:
             print("no remote found...")
             print("exiting sequence without pushing to remote....")
