@@ -77,7 +77,7 @@ def validate_and_status_check():
         CHANGES_FLAG = not CHANGES_FLAG
     else:
         time.sleep(1)
-        print("no changes found.\nexiting sequence...")
+        print("no changes found.\n---> exiting sequence...\n")
         time.sleep(1)
         sys.exit()
 
