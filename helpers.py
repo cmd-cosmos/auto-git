@@ -16,20 +16,51 @@ def speak(lines):
     engine.runAndWait()
 
 
-def show_art():
+def show_art(mode=None):
     '''
     print punchlines and show art at end.
     '''
-    os.system("cls")
-    print("Sequence complete...\n")
-    time.sleep(1)
-    print("I am Vengeance")
-    time.sleep(1)
-    print("I am the Night")
-    time.sleep(1)
-    print("I am Batman")
-    time.sleep(1)
-    print(bat3)
-    time.sleep(4)
-    sys.exit()
 
+    if mode == 0:
+        # set mode 0 when clean_flag == 'y'
+        print("\n#### Running complete cleanup routine ####\n")
+        print("Showing cool art before complete cleanup...")
+        time.sleep(2)
+        os.system("cls")
+        time.sleep(1)
+        print("I am Vengeance")
+        time.sleep(1)
+        print("I am the Night")
+        time.sleep(1)
+        print("I am Batman")
+        time.sleep(1)
+        print(bat3)
+        time.sleep(4)
+        print("\nCleaning screen...")
+        time.sleep(2)
+        os.system("cls")
+        sys.exit()
+    else:
+        # no mode signifies screen cleanup and then display art
+        print("\n#### Running standard cleanup routine ####\n")
+        print("Showing cool art before repo status display...")
+        time.sleep(2)
+        os.system("cls")
+        time.sleep(1)
+        print("I am Vengeance")
+        time.sleep(1)
+        print("I am the Night")
+        time.sleep(1)
+        print("I am Batman")
+        time.sleep(1)
+        print(bat3)
+        time.sleep(4)
+        print("Fetching repo status...")
+        time.sleep(2)
+        os.system("git status")
+        print()
+        time.sleep(1)
+        sys.exit()
+
+if __name__ == "__main__":
+    show_art()
