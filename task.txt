@@ -1,0 +1,30 @@
+### git commands to add to the auto sequence:
+
+--> git status    ---> --porcelain flag
+--> git add       ---> --all flag and selective files
+--> git commit    ---> default message and custom commit message
+--> git remote    ---> checking remote exists and pushing
+--> git push      ---> pushing after commiting 
+
+# not worked
+
+--> git restore   ---> --staged flag and . flag
+
+--> git branch    ---> listing banches
+--> git checkout  ---> switching branches and -b flag for creating and swithcing
+--> git merge     ---> merge banches
+--> git rebase    ---> reapply commits on other branch
+
+--> git log       ---> viewing commit history and --oneline for concise commit history
+--> git diff      ---> view unstaged changes and --staged flag to see changes staged for commit
+
+--> git fetch 
+--> git pull 
+
+--> git revert    ---> safe undo a commit -> making a new commit
+--> git reset     ---> both hard and soft reverts
+--> git stash     ---> temp save changes not ready for commit
+--> git stash pop ---> reapply stashed changes
+
+
+
