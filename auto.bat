@@ -5,6 +5,8 @@ set "ORIGINAL_DIR=%cd%"
 cd /d "%~dp0"
 
 echo.
+echo ======================== AUTO GIT ROUTINE ========================
+echo.
 echo #RUNNING SCRIPT IN: %ORIGINAL_DIR%...
 timeout /t 3 /nobreak > NUL
 echo.
