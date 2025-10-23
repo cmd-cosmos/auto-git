@@ -199,7 +199,7 @@ if MODE and CHANGES_FLAG:
             pass
         print("\nFetching status...")
         os.system("git status")
-
+        print("-"*70)
         inp_flag = input("add custom message for the commit[y/n]: ").lower().strip()
 
         if inp_flag == 'y':
