@@ -203,11 +203,38 @@ if MODE and CHANGES_FLAG:
 
         if inp_flag == 'y':
             msg_string = input("enter custom message: ").strip()
+            print(f"Message String: {msg_string}")
+            time.sleep(2)
         else:
-            msg_string = "auto commit --> default message"
+            ### add a list of default strings and prompt user to choose default message else push the system defualt message.
+            msg_list = [
+                "initial commit",
+                "updated README.md",
+                "no major changes made",
+                "minor formatting changes",
+                "temporary commit",
+                "modified comments",
+                "cleanup",
+                "auto commit sequence --> system default message",
+            ]
+            n = len(msg_list)
+            n_div = n // 2
+            left = msg_list[:n_div]
+            right = msg_list[n_div:]
+
+            for i,(l,r) in enumerate(zip(left,right)):
+                l_idx = i
+                r_idx = i + n_div
+                print(f"{l_idx:>2}: {l:<40} {r_idx:>2}: {r}")
+            print("TEST LOG: Selecting system default message for now")
+            def_choice = -1 # add user input logic block
+            chosen_idx = def_choice
+            msg_string = msg_list[chosen_idx]
+            print(f"Commit Message String: {msg_string}")
 
         print()
         os.system(f'git commit -m "{msg_string}"')
+        time.sleep(2)
         print("-"*70)
         push_conf = input("ready to push changes[y/n]: ").lower().strip()
         if push_conf == "y":
