@@ -200,23 +200,24 @@ if MODE and CHANGES_FLAG:
         print("\nFetching status...")
         os.system("git status")
         print("-"*70)
-        inp_flag = input("add custom message for the commit[y/n]: ").lower().strip()
+        inp_flag = input("Add custom message for the commit[y/n]: ").lower().strip()
+        print()
 
         if inp_flag == 'y':
-            msg_string = input("enter custom message: ").strip()
+            msg_string = input("Enter custom message: ").strip()
             print(f"Message String: {msg_string}")
             time.sleep(2)
         elif inp_flag == 'n':
             ### add a list of default strings and prompt user to choose default message else push the system defualt message.
             msg_list = [
-                "initial commit",
-                "updated README.md",
-                "no major changes made",
-                "minor formatting changes",
-                "temporary commit",
-                "modified comments",
-                "cleanup",
-                "auto commit sequence --> system default message",
+                "Initial commit.",
+                "Updated README.md",
+                "No major changes made.",
+                "Minor formatting changes.",
+                "Temporary commit.",
+                "Modified comments.",
+                "Cleanup.",
+                "Auto Commit Sequence --> system default message",
             ]
             n = len(msg_list)
             n_div = n // 2
