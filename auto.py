@@ -7,6 +7,7 @@
 # pylint ignores ---> ignore globals whitespace in multiline function calls
 # pylint: disable=global-statement
 # pylint: disable=C0303
+# pylint: disable=C0301
 # pylint: disable=C0114
 
 import time
@@ -205,7 +206,7 @@ if MODE and CHANGES_FLAG:
             msg_string = input("enter custom message: ").strip()
             print(f"Message String: {msg_string}")
             time.sleep(2)
-        else:
+        elif inp_flag == 'n':
             ### add a list of default strings and prompt user to choose default message else push the system defualt message.
             msg_list = [
                 "initial commit",
@@ -226,9 +227,11 @@ if MODE and CHANGES_FLAG:
                 l_idx = i
                 r_idx = i + n_div
                 print(f"{l_idx:>2}: {l:<40} {r_idx:>2}: {r}")
-            print("TEST LOG: Selecting system default message for now")
+
+            msg_choice = int(input("Enter default messag idx: "))
+            print(f"Default Commit Message Choice: {msg_choice}\n")
             def_choice = -1 # add user input logic block
-            chosen_idx = def_choice
+            chosen_idx = def_choice if (inp_flag not in ('y', 'n')) else msg_choice
             msg_string = msg_list[chosen_idx]
             print(f"Commit Message String: {msg_string}")
 
