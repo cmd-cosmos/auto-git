@@ -6,7 +6,7 @@ cd /d "%~dp0"
 
 echo.
 echo #RUNNING SCRIPT IN: %ORIGINAL_DIR%...
-timeout /t 3
+timeout /t 3 /nobreak > NUL
 echo.
 
 python -u auto.py "%ORIGINAL_DIR%"
