@@ -164,7 +164,8 @@ if MODE and CHANGES_FLAG:
             elif clean_flag == 'n':
                 art_flag = input("would you like to look at some cool art[y/n]: ").lower().strip()
                 if art_flag == 'y':
-                    print("\n"*100)
+                    # print("\n"*100)
+                    os.system("cls")
                     print("I am Vengeance")
                     time.sleep(1)
                     print("I am the Night")
