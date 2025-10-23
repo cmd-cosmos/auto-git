@@ -23,6 +23,7 @@ def show_art(mode=None):
 
     if mode == 0:
         # set mode 0 when clean_flag == 'y'
+        os.system("cls")
         print("\n#### Running complete cleanup routine ####\n")
         print("Showing cool art before complete cleanup...")
         time.sleep(2)
@@ -42,6 +43,7 @@ def show_art(mode=None):
         sys.exit()
     else:
         # no mode signifies screen cleanup and then display art
+        os.system("cls")
         print("\n#### Running standard cleanup routine ####\n")
         print("Showing cool art before repo status display...")
         time.sleep(2)
