@@ -182,6 +182,7 @@ if MODE and CHANGES_FLAG:
                     print("I am Batman")
                     time.sleep(1)
                     print(bat3)
+                    sys.exit()
         else:
             print("no remote found...")
             print("exiting sequence without pushing to remote....")
