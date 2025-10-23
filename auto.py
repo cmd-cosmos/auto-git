@@ -149,6 +149,7 @@ if MODE and CHANGES_FLAG:
 
             clean_flag = input("would you like to clear screen[y/n]: ").lower().strip()
             if clean_flag == 'y':
+                os.system("cls")
                 print("clearing screen...")
                 print("look at this cool artwork in the meantime...")
                 print("\n"*100)
@@ -164,9 +165,9 @@ if MODE and CHANGES_FLAG:
             elif clean_flag == 'n':
                 art_flag = input("would you like to look at some cool art[y/n]: ").lower().strip()
                 if art_flag == 'y':
-                    # print("\n"*100)
                     os.system("cls")
-                    print("I am Vengeance")
+                    time.sleep(1)
+                    print("\nI am Vengeance")
                     time.sleep(1)
                     print("I am the Night")
                     time.sleep(1)
@@ -176,6 +177,7 @@ if MODE and CHANGES_FLAG:
                     time.sleep(1)
                     sys.exit()
                 else:
+                    os.system("cls")
                     print("\n"*100)
                     print("\nsequence complete...\n")
                     time.sleep(1)
@@ -188,7 +190,8 @@ if MODE and CHANGES_FLAG:
                     print(bat3)
                     sys.exit()
             else:
-                print("\n"*100)
+                # print("\n"*100)
+                os.system("cls")
                 print("Flag id error ---> showing art anyways...\n")
                 time.sleep(1)
                 print("I am Vengeance")
