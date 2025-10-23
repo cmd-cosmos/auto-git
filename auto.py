@@ -194,6 +194,9 @@ if MODE and CHANGES_FLAG:
         proceed with git commit sequence after git add returns and user passes custom message 
         otherwise goes with the default version
         '''
+
+        sys_default_msg = "Auto Commit Sequence --> system default message"
+
         if add_mode == 1:
             os.system("git add --all")
         elif add_mode == 2:
@@ -215,10 +218,10 @@ if MODE and CHANGES_FLAG:
                 "Updated README.md",
                 "No major changes made.",
                 "Minor formatting changes.",
-                "Temporary commit.",
+                "Test commit.",
                 "Modified comments.",
                 "Cleanup.",
-                "Auto Commit Sequence --> system default message",
+                sys_default_msg,
             ]
             n = len(msg_list)
             n_div = n // 2
@@ -230,12 +233,26 @@ if MODE and CHANGES_FLAG:
                 r_idx = i + n_div
                 print(f"{l_idx:>2}: {l:<40} {r_idx:>2}: {r}")
 
-            msg_choice = int(input("\nEnter default messag idx: "))
-            print(f"Default Commit Message Choice: {msg_choice}\n")
-            def_choice = -1 # add user input logic block
-            chosen_idx = def_choice if (inp_flag not in ('y', 'n')) else msg_choice
+            print("WARNING: if index out or range ---> fallback to default message.")
+            def_choice = -1 
+
+            try:
+                msg_choice = int(input("\nEnter default message idx: "))
+            except ValueError:
+                print("Index out of range ---> fallback to system default message\n")
+                msg_choice = def_choice
+
+            if msg_choice < 0 or msg_choice >= n:
+                print("Index out of range ---> fallback to system default message\n")
+                chosen_idx = def_choice
+            else:
+                chosen_idx = msg_choice
             msg_string = msg_list[chosen_idx]
             print(f"Commit Message String: {msg_string}")
+
+        else:
+            print("Flag error --> fallback to default commit message")
+            msg_string = sys_default_msg
 
         print()
         os.system(f'git commit -m "{msg_string}"')
