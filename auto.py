@@ -229,7 +229,7 @@ if MODE and CHANGES_FLAG:
                 r_idx = i + n_div
                 print(f"{l_idx:>2}: {l:<40} {r_idx:>2}: {r}")
 
-            msg_choice = int(input("Enter default messag idx: "))
+            msg_choice = int(input("\nEnter default messag idx: "))
             print(f"Default Commit Message Choice: {msg_choice}\n")
             def_choice = -1 # add user input logic block
             chosen_idx = def_choice if (inp_flag not in ('y', 'n')) else msg_choice
