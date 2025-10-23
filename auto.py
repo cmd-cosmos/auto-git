@@ -14,7 +14,7 @@ import time
 import os
 import sys
 import subprocess
-from art import bat2, bat3
+from art import bat2
 from helpers import show_art
 
 os.system("cls")
