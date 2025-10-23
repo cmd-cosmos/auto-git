@@ -233,17 +233,20 @@ if MODE and CHANGES_FLAG:
                 r_idx = i + n_div
                 print(f"{l_idx:>2}: {l:<40} {r_idx:>2}: {r}")
 
-            print("WARNING: if index out or range ---> fallback to default message.")
+            print("\nWARNING: if index out or range ---> fallback to default message.")
+            time.sleep(2)
             def_choice = -1 
 
             try:
                 msg_choice = int(input("\nEnter default message idx: "))
             except ValueError:
                 print("Index out of range ---> fallback to system default message\n")
+                time.sleep(2)
                 msg_choice = def_choice
 
             if msg_choice < 0 or msg_choice >= n:
                 print("Index out of range ---> fallback to system default message\n")
+                time.sleep(2)
                 chosen_idx = def_choice
             else:
                 chosen_idx = msg_choice
@@ -252,6 +255,7 @@ if MODE and CHANGES_FLAG:
 
         else:
             print("Flag error --> fallback to default commit message")
+            time.sleep(2)
             msg_string = sys_default_msg
 
         print()
