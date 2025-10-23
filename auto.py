@@ -183,6 +183,18 @@ if MODE and CHANGES_FLAG:
                     time.sleep(1)
                     print(bat3)
                     sys.exit()
+            else:
+                print("Flag id error ---> showing art anyways...")
+                time.sleep(1)
+                print("I am Vengeance")
+                time.sleep(1)
+                print("I am the Night")
+                time.sleep(1)
+                print("I am Batman")
+                time.sleep(1)
+                print(bat3)
+                sys.exit()
+                
         else:
             print("no remote found...")
             print("exiting sequence without pushing to remote....")
