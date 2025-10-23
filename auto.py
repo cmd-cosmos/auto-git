@@ -15,6 +15,7 @@ import os
 import sys
 import subprocess
 from art import bat2, bat3
+from helpers import show_art
 
 os.system("cls")
 print(bat2)
@@ -150,57 +151,20 @@ if MODE and CHANGES_FLAG:
             time.sleep(1)
             print("-"*70)
 
-            clean_flag = input("would you like to clear screen[y/n]: ").lower().strip()
+            clean_flag = input("would you like to completely clear screen[y/n]: ").lower().strip()
             if clean_flag == 'y':
-                os.system("cls")
-                print("running clean screen sequence...\n")
-                print("I am Vengeance...")
-                time.sleep(1)
-                print("I am the Night...")
-                time.sleep(1)
-                print("I am Batman...")
-                time.sleep(1)
-                print(bat3)
-                time.sleep(4)
-                os.system("cls")
+                show_art(mode=0)
+
             elif clean_flag == 'n':
                 art_flag = input("would you like to look at some cool art[y/n]: ").lower().strip()
                 if art_flag == 'y':
-                    os.system("cls")
-                    time.sleep(1)
-                    print("I am Vengeance")
-                    time.sleep(1)
-                    print("I am the Night")
-                    time.sleep(1)
-                    print("I am Batman")
-                    time.sleep(1)
-                    print(bat3)
-                    time.sleep(1)
-                    sys.exit()
+                    show_art()
                 else:
-                    os.system("cls")
-                    print("Sequence complete...\n")
-                    time.sleep(1)
-                    print("I am Vengeance")
-                    time.sleep(1)
-                    print("I am the Night")
-                    time.sleep(1)
-                    print("I am Batman")
-                    time.sleep(1)
-                    print(bat3)
-                    sys.exit()
+                    show_art()
             else:
                 os.system("cls")
                 print("Flag id error ---> showing art anyways...\n")
-                time.sleep(1)
-                print("I am Vengeance")
-                time.sleep(1)
-                print("I am the Night")
-                time.sleep(1)
-                print("I am Batman")
-                time.sleep(1)
-                print(bat3)
-                sys.exit()
+                show_art()
 
         else:
             print("No remote found...")
@@ -307,18 +271,8 @@ if MODE and CHANGES_FLAG:
                 PROCEED = False
                 print("-"*70)
                 time.sleep(1)
-                os.system("cls")
-                print("terminating process ---> exiting seq.")
-                time.sleep(1)
-                print("I am Vengeance")
-                time.sleep(1)
-                print("I am the Night")
-                time.sleep(1)
-                print("I am Batman")
-                time.sleep(1)
-                print(bat3)
-                time.sleep(3)
-                sys.exit()
+                print("TERMINATING PROCESS ---> exiting seq.")
+                show_art()
     else:
         print("failure --> exiting")
         sys.exit()
