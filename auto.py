@@ -16,6 +16,7 @@ import sys
 import subprocess
 from art import bat2, bat3
 
+os.system("cls")
 print(bat2)
 
 # init global vars to none
@@ -58,27 +59,29 @@ def validate_and_status_check():
         print(".git directory confirmed, proceeding with auto commit sequence.\n")
         print("-"*70)
     else:
-        print("not a git directory")
+        os.system("cls")
+        print("NOT a git directory ---> terminating sequence")
         print("-"*70)
+        time.sleep(1)
 
     time.sleep(2)
     global STATUS #ignore : warning
     STATUS = os.system("git status")
     print("-"*70)
-    print("status check return val: ", STATUS)
+    print("Status check return val: ", STATUS)
 
     command = subprocess.run(["git", "status", "--porcelain"],
                                   capture_output=True, text=True, check=False)   
 
     if bool(command.stdout.strip()) is True:
         time.sleep(1)
-        print("changes found.")
-        print("proceeding with the auto track sequence.")
+        print("Changes found.")
+        print("Proceeding with the auto track sequence.")
         global CHANGES_FLAG
         CHANGES_FLAG = not CHANGES_FLAG
     else:
         time.sleep(1)
-        print("no changes found.\n---> exiting sequence...\n")
+        print("No changes found ---> exiting sequence...\n")
         time.sleep(1)
         sys.exit()
 
@@ -150,9 +153,7 @@ if MODE and CHANGES_FLAG:
             clean_flag = input("would you like to clear screen[y/n]: ").lower().strip()
             if clean_flag == 'y':
                 os.system("cls")
-                print("clearing screen...")
-                print("look at this cool artwork in the meantime...")
-                print("\n"*100)
+                print("running clean screen sequence...\n")
                 print("I am Vengeance...")
                 time.sleep(1)
                 print("I am the Night...")
@@ -167,7 +168,7 @@ if MODE and CHANGES_FLAG:
                 if art_flag == 'y':
                     os.system("cls")
                     time.sleep(1)
-                    print("\nI am Vengeance")
+                    print("I am Vengeance")
                     time.sleep(1)
                     print("I am the Night")
                     time.sleep(1)
@@ -178,8 +179,7 @@ if MODE and CHANGES_FLAG:
                     sys.exit()
                 else:
                     os.system("cls")
-                    print("\n"*100)
-                    print("\nsequence complete...\n")
+                    print("Sequence complete...\n")
                     time.sleep(1)
                     print("I am Vengeance")
                     time.sleep(1)
@@ -190,7 +190,6 @@ if MODE and CHANGES_FLAG:
                     print(bat3)
                     sys.exit()
             else:
-                # print("\n"*100)
                 os.system("cls")
                 print("Flag id error ---> showing art anyways...\n")
                 time.sleep(1)
@@ -204,8 +203,8 @@ if MODE and CHANGES_FLAG:
                 sys.exit()
 
         else:
-            print("no remote found...")
-            print("exiting sequence without pushing to remote....")
+            print("No remote found...")
+            print("Exiting sequence without pushing to remote....")
             time.sleep(1)
             sys.exit()
 
@@ -307,6 +306,8 @@ if MODE and CHANGES_FLAG:
             else:
                 PROCEED = False
                 print("-"*70)
+                time.sleep(1)
+                os.system("cls")
                 print("terminating process ---> exiting seq.")
                 time.sleep(1)
                 print("I am Vengeance")
