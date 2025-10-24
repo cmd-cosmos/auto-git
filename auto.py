@@ -15,7 +15,7 @@ import os
 import sys
 import subprocess
 from art import bat2
-from helpers import show_art
+from helpers import show_art, speak
 
 os.system("cls")
 print(bat2)
@@ -200,10 +200,12 @@ if MODE and CHANGES_FLAG:
                 "Initial commit.",
                 "Updated README.md",
                 "No major changes made.",
+                "Refactored for clarity.",
+                "Minor bug fix",
                 "Minor formatting changes.",
-                "Test commit.",
-                "Modified comments.",
-                "Cleanup.",
+                "New feature implementation --> auto test commit.",
+                "Modified comments --> documentation changes.",
+                "Cleanup and formatting.",
                 sys_default_msg,
             ]
             n = len(msg_list)
