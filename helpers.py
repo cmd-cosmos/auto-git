@@ -12,9 +12,10 @@ def speak(lines):
     helper function to speak lines passed in.
     '''
     engine = pyttsx3.init()
+    engine.setProperty('rate', 125)
+    time.sleep(1)
     engine.say(lines)
     engine.runAndWait()
-
 
 def show_art(mode=None):
     '''
@@ -26,7 +27,7 @@ def show_art(mode=None):
         os.system("cls")
         print("\n#### Running complete cleanup routine ####\n")
         print("Showing cool art before complete cleanup...")
-        time.sleep(2)
+        time.sleep(3)
         os.system("cls")
         time.sleep(1)
         print("I am Vengeance")
@@ -41,12 +42,15 @@ def show_art(mode=None):
         time.sleep(2)
         os.system("cls")
         sys.exit()
+    elif mode == 1:
+        print("Debug mode...")
+        print("skipping art sequence...")
     else:
         # no mode signifies screen cleanup and then display art
         os.system("cls")
         print("\n#### Running standard cleanup routine ####\n")
         print("Showing cool art before repo status display...")
-        time.sleep(2)
+        time.sleep(3)
         os.system("cls")
         time.sleep(1)
         print("I am Vengeance")
@@ -65,12 +69,14 @@ def show_art(mode=None):
         sys.exit()
 
 if __name__ == "__main__":
-    if 0:
-        show_art()
+    
+    show_art(mode=1)
 
+    speak("hello there")
     test_lines = ["I am Vengeance",
                   "I am the Night",
                   "I am Batman"]
     for line in test_lines:
         speak(line)
+
 
