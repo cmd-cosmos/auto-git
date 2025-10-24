@@ -65,4 +65,12 @@ def show_art(mode=None):
         sys.exit()
 
 if __name__ == "__main__":
-    show_art()
+    if 0:
+        show_art()
+
+    test_lines = ["I am Vengeance",
+                  "I am the Night",
+                  "I am Batman"]
+    for line in test_lines:
+        speak(line)
+
