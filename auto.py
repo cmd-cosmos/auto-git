@@ -18,6 +18,11 @@ from art import bat2
 from helpers import show_art, speak
 
 os.system("cls")
+speak("Running auto git sequence")
+speak(3)
+speak(2)
+speak(1)
+
 print(bat2)
 
 # init global vars to none
