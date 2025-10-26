@@ -34,7 +34,9 @@ def git_root_getter(start=None):
         return res.stdout.strip() 
     except subprocess.CalledProcessError:
         print("Not a git repo")
-        sys.exit()
+        print("Suspending routine.")
+        time.sleep(3)
+        show_art()
 
 if len(sys.argv) > 1:
     target_path = sys.argv[1]
@@ -66,7 +68,7 @@ def validate_and_status_check():
         os.system("cls")
         print("NOT a git directory ---> terminating sequence")
         print("-"*70)
-        time.sleep(1)
+        show_art()
 
     time.sleep(2)
     global STATUS #ignore : warning
@@ -173,7 +175,7 @@ if MODE and CHANGES_FLAG:
             print("No remote found...")
             print("Exiting sequence without pushing to remote....")
             time.sleep(1)
-            sys.exit()
+            show_art()
 
     def commit(add_mode):
         '''
@@ -277,6 +279,7 @@ if MODE and CHANGES_FLAG:
                 print("-"*70)
                 time.sleep(1)
                 print("TERMINATING PROCESS ---> exiting seq.")
+                time.sleep(3)
                 show_art()
     else:
         print("failure --> exiting")
