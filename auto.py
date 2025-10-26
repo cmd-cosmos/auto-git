@@ -18,10 +18,8 @@ from art import bat2
 from helpers import show_art, speak
 
 os.system("cls")
-speak("Running auto git sequence")
-speak(3)
-speak(2)
-speak(1)
+speak("Running prerequisite routines")
+speak("Target directory set, proceeding with sequence")
 
 print(bat2)
 

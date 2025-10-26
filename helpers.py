@@ -12,7 +12,7 @@ def speak(lines):
     helper function to speak lines passed in.
     '''
     engine = pyttsx3.init()
-    engine.setProperty('rate', 130)
+    engine.setProperty('rate', 135)
     if isinstance(lines, int):
         lines = str(lines)
 
