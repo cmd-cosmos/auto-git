@@ -9,6 +9,7 @@
 # pylint: disable=C0303
 # pylint: disable=C0301
 # pylint: disable=C0114
+# pylint: disable=R1710
 
 import time
 import os
@@ -207,10 +208,10 @@ if MODE and CHANGES_FLAG:
                 "No major changes made.",
                 "Refactored for clarity.",
                 "Minor bug fix",
-                "Minor formatting changes.",
+                "Minor cleanup and formatting changes.",
                 "New feature implementation --> auto test commit.",
                 "Modified comments --> documentation changes.",
-                "Cleanup and formatting.",
+                "File/Directory structure changes.",
                 sys_default_msg,
             ]
             n = len(msg_list)
