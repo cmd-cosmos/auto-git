@@ -12,7 +12,8 @@ def speak(lines):
     helper function to speak lines passed in.
     '''
     engine = pyttsx3.init()
-    engine.setProperty('rate', 135)
+    # voices = engine.getProperty('voices')
+    engine.setProperty('rate', 180)
     if isinstance(lines, int):
         lines = str(lines)
 
@@ -74,7 +75,10 @@ if __name__ == "__main__":
     
     show_art(mode=1)
 
-    speak("hello there")
+    # speak("hello there")
+    speak("prerequisite routines executed")
+    speak("Target directory set")
+
     test_lines = ["I am Vengeance",
                   "I am the Night",
                   "I am Batman"]
