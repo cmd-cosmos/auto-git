@@ -18,8 +18,8 @@ from art import bat2
 from helpers import show_art, speak
 
 os.system("cls")
-speak("Running prerequisite routines")
-speak("Target directory set, proceeding with sequence")
+speak("prerequisite routines executed")
+speak("Target directory set")
 
 print(bat2)
 
