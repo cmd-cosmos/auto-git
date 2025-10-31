@@ -242,7 +242,7 @@ if MODE and CHANGES_FLAG:
             else:
                 chosen_idx = msg_choice
             msg_string = msg_list[chosen_idx]
-            print(f"Commit Message String: {msg_string}")
+            print(f"\nCommit Message String:\n==> {msg_string}")
 
         else:
             print("Flag error --> fallback to default commit message")
