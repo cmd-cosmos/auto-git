@@ -198,7 +198,7 @@ if MODE and CHANGES_FLAG:
 
         if inp_flag == 'y':
             msg_string = input("Enter custom message: ").strip()
-            print(f"Message String: {msg_string}")
+            print(f"\nMessage String:\n==> {msg_string}")
             time.sleep(2)
         elif inp_flag == 'n':
             ### add a list of default strings and prompt user to choose default message else push the system defualt message.
