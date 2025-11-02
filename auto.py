@@ -253,13 +253,20 @@ if MODE and CHANGES_FLAG:
         os.system(f'git commit -m "{msg_string}"')
         time.sleep(2)
         print("-"*70)
-        push_conf = input("ready to push changes[y/n]: ").lower().strip()
-        if push_conf == "y":
-            check_remote_and_push()
-        else:
-            print("\nexiting without pushing.")
-            time.sleep(1)
-            sys.exit()
+        
+        repeat_push_proc_flag = True
+        while repeat_push_proc_flag:
+            push_conf = input("ready to push changes[y/n]: ").lower().strip()
+            if push_conf == "y":
+                check_remote_and_push()
+                repeat_push_proc_flag = False
+            elif push_conf == 'n':
+                print("\nexiting without pushing.")
+                repeat_push_proc_flag = False
+                time.sleep(1)
+                sys.exit()
+            else:
+                print("Invlaid input --> repeating push confirmation sequence..")
 
     if STATUS == 0:
         print("status check successful --> proceeding with git add sequence")
