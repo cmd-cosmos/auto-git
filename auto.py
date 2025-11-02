@@ -266,7 +266,9 @@ if MODE and CHANGES_FLAG:
                 time.sleep(1)
                 sys.exit()
             else:
+                print('\n',"x"*70)
                 print("Invlaid input --> repeating push confirmation sequence..")
+                print("x"*70, '\n')
 
     if STATUS == 0:
         print("status check successful --> proceeding with git add sequence")
