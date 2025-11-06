@@ -11,6 +11,15 @@ op_dict = {
         4 : "commit changes",
         5 : "push changes",
     }
+
+op_msgs = [
+"executing default routine",
+"fetching current branch status",
+"loading bracnch ops selection menu",
+"proceeding with staging operation",
+"proceeding with commit sequence for staged changes",
+"pushing commited changes to remote"]
+
 print("Auto Git Sequence Menu:\n")
 print("*"*70)
 print("id |     operation")
@@ -20,4 +29,9 @@ for key,val in op_dict.items():
 print("*"*70)
 print()
 print("ALERT: invalid input will result in fallback to default routine.\n")
-input("Enter op id: ")
+menu_selection = int(input("Enter op id: "))
+if menu_selection not in op_dict.keys():
+    print("INVALID OP ID: RANGE ERROR")
+    print("fallback to default routine")
+else: 
+    print("")

@@ -9,6 +9,7 @@
 # pylint: disable=C0303
 # pylint: disable=C0301
 # pylint: disable=C0114
+# pylint: disable=C0116
 # pylint: disable=R1710
 
 import time
@@ -54,6 +55,27 @@ os.chdir(git_root)
 print("-"*30, "Auto Git", "-"*30, '\n')
 
 CHANGES_FLAG = False
+
+def show_menu():
+    op_dict = {
+        0 : "default routine",
+        1 : "status check",
+        2 : "branch ops",
+        3 : "stage changes",
+        4 : "commit changes",
+        5 : "push changes",
+    }
+    print("Auto Git Sequence Menu:\n")
+    print("*"*70)
+    print("id |     operation")
+    print("----------------------")
+    for key,val in op_dict.items():
+        print(f"{key} | {val}")
+    print("*"*70)
+    print()
+    print("ALERT: invalid input will result in fallback to default routine.\n")
+    input("Enter op id: ")
+
 
 def validate_and_status_check():
     '''
