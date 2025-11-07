@@ -40,7 +40,7 @@ def show_art(mode=None):
         print("I am Vengeance")
         time.sleep(2)
         print("I am the Night")
-        time.sleep(5)
+        time.sleep(3)
         print("I am Batman")
         time.sleep(2)
         print(bat3)
@@ -63,7 +63,7 @@ def show_art(mode=None):
         print("I am Vengeance")
         time.sleep(2)
         print("I am the Night")
-        time.sleep(5)
+        time.sleep(3)
         print("I am Batman")
         time.sleep(2)
         print(bat3)
@@ -85,7 +85,7 @@ def play_outro():
 
 if __name__ == "__main__":
     
-    show_art(mode=1)
+    # show_art(mode=1)
 
     # speak("hello there")
     # speak("prerequisite routines executed")
@@ -98,10 +98,11 @@ if __name__ == "__main__":
     #     speak(line)
 
     t1 = threading.Thread(target=play_outro, daemon=True)
-    t2 = threading.Thread(target=show_art)
+    t2 = threading.Thread(target=show_art, args=(0,))
 
-    t1.start()
     t2.start()
+    time.sleep(2)
+    t1.start()
 
     t2.join()
 
