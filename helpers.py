@@ -1,5 +1,7 @@
 #pylint: disable=C0114
+#pylint: disable=C0303
 #pylint: disable=C0305
+#pylint: disable=C0411
 
 import time
 import sys
@@ -32,7 +34,7 @@ def show_art(mode=None):
         os.system("cls")
         print("\n#### Running complete cleanup routine ####\n")
         print("Showing cool art before complete cleanup...")
-        time.sleep(3)
+        time.sleep(2)
         os.system("cls")
         time.sleep(1)
         print("I am Vengeance")
@@ -55,7 +57,7 @@ def show_art(mode=None):
         os.system("cls")
         print("\n#### Running standard cleanup routine ####\n")
         print("Showing cool art before repo status display...")
-        time.sleep(3)
+        time.sleep(2)
         os.system("cls")
         time.sleep(1)
         print("I am Vengeance")
@@ -74,6 +76,9 @@ def show_art(mode=None):
         sys.exit()
 
 def play_outro():
+    '''
+    helper function to play outro clip
+    '''
     pygame.mixer.init()
     pygame.mixer.music.load('batman_soundtrack.mp3')
     pygame.mixer.music.play()
@@ -92,7 +97,14 @@ if __name__ == "__main__":
     # for line in test_lines:
     #     speak(line)
 
-    play_outro()
-    time.sleep(15)
+    t1 = threading.Thread(target=play_outro, daemon=True)
+    t2 = threading.Thread(target=show_art)
+
+    t1.start()
+    t2.start()
+
+    t2.join()
+
+    # time.sleep(15)
 
 
