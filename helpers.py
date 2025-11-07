@@ -83,6 +83,14 @@ def play_outro():
     pygame.mixer.music.load('batman_soundtrack.mp3')
     pygame.mixer.music.play()
 
+def conc_outro():
+    t1 = threading.Thread(target=play_outro, daemon=True)
+    t2 = threading.Thread(target=show_art)
+    t2.start()
+    time.sleep(2)
+    t1.start()
+    t2.join()
+
 if __name__ == "__main__":
     
     # show_art(mode=1)
@@ -97,15 +105,16 @@ if __name__ == "__main__":
     # for line in test_lines:
     #     speak(line)
 
-    t1 = threading.Thread(target=play_outro, daemon=True)
-    t2 = threading.Thread(target=show_art, args=(0,))
+    # t1 = threading.Thread(target=play_outro, daemon=True)
+    # t2 = threading.Thread(target=show_art)
 
-    t2.start()
-    time.sleep(2)
-    t1.start()
+    # t2.start()
+    # time.sleep(2)
+    # t1.start()
 
-    t2.join()
+    # t2.join()
 
+    conc_outro()
     # time.sleep(15)
 
 
