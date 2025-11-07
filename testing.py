@@ -29,9 +29,22 @@ for key,val in op_dict.items():
 print("*"*70)
 print()
 print("ALERT: invalid input will result in fallback to default routine.\n")
-menu_selection = int(input("Enter op id: "))
+try:
+    menu_selection = int(input("Enter op id: "))
+except ValueError:
+    print()
+    print("*"*70)
+    print("invalid input...")
+    print("fallback to default routine.")
+    menu_selection = 0
+    print()
 if menu_selection not in op_dict.keys():
+    print("*"*70)
     print("INVALID OP ID: RANGE ERROR")
     print("fallback to default routine")
+    print("*"*70)
 else: 
-    print("")
+    print(f"setting op id: {menu_selection}")
+    print(op_msgs[menu_selection])
+    print("*"*70)
+
