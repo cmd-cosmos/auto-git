@@ -14,11 +14,10 @@
 
 import time
 import os
-import threading
 import sys
 import subprocess
 from art import bat2
-from helpers import show_art, speak, play_outro
+from helpers import show_art, speak, conc_outro
 
 os.system("cls")
 speak("prerequisite routines executed")
@@ -183,51 +182,23 @@ if MODE and CHANGES_FLAG:
             clean_flag = input("would you like to completely clear screen[y/n]: ").lower().strip()
             if clean_flag == 'y':
                 # show_art(mode=0)
-                t1 = threading.Thread(target=play_outro, daemon=True)
-                t2 = threading.Thread(target=show_art, args=(0,))
-
-                t2.start()
-                time.sleep(2)
-                t1.start()
-
-                t2.join()
+                conc_outro(mode_bit=0)
 
             elif clean_flag == 'n':
                 art_flag = input("would you like to look at some cool art[y/n]: ").lower().strip()
                 if art_flag == 'y':
-                    t1 = threading.Thread(target=play_outro, daemon=True)
-                    t2 = threading.Thread(target=show_art)
-                    t2.start()
-                    time.sleep(2)
-                    t1.start()
-                    t2.join()
+                    conc_outro(mode_bit=None)
                 else:
-                    t1 = threading.Thread(target=play_outro, daemon=True)
-                    t2 = threading.Thread(target=show_art)
-                    t2.start()
-                    time.sleep(2)
-                    t1.start()
-                    t2.join()
+                    conc_outro(mode_bit=None)
             else:
                 os.system("cls")
                 print("Flag id error ---> showing art anyways...\n")
-                t1 = threading.Thread(target=play_outro, daemon=True)
-                t2 = threading.Thread(target=show_art)
-                t2.start()
-                time.sleep(2)
-                t1.start()
-                t2.join()
+                conc_outro(mode_bit=None)
 
         else:
             print("No remote found...")
             print("Exiting sequence without pushing to remote....")
-            time.sleep(1)
-            t1 = threading.Thread(target=play_outro, daemon=True)
-            t2 = threading.Thread(target=show_art)
-            t2.start()
-            time.sleep(2)
-            t1.start()
-            t2.join()
+            conc_outro(mode_bit=None)
 
     def commit(add_mode):
         '''
@@ -342,7 +313,7 @@ if MODE and CHANGES_FLAG:
                 time.sleep(1)
                 print("TERMINATING PROCESS ---> exiting seq.")
                 time.sleep(3)
-                show_art()
+                conc_outro(mode_bit=None)
     else:
         print("failure --> exiting")
         sys.exit()
