@@ -14,10 +14,11 @@
 
 import time
 import os
+import threading
 import sys
 import subprocess
 from art import bat2
-from helpers import show_art, speak
+from helpers import show_art, speak, play_outro
 
 os.system("cls")
 speak("prerequisite routines executed")
@@ -181,7 +182,14 @@ if MODE and CHANGES_FLAG:
 
             clean_flag = input("would you like to completely clear screen[y/n]: ").lower().strip()
             if clean_flag == 'y':
-                show_art(mode=0)
+                t1 = threading.Thread(target=play_outro, daemon=True)
+                t2 = threading.Thread(target=show_art)
+
+                t1.start()
+                t2.start()
+
+                t2.join()
+                # show_art(mode=0)
 
             elif clean_flag == 'n':
                 art_flag = input("would you like to look at some cool art[y/n]: ").lower().strip()
