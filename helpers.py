@@ -48,7 +48,7 @@ def show_art(mode=None):
         print("I am Vengeance")
         time.sleep(2)
         print("I am the Night")
-        time.sleep(3)
+        time.sleep(2.1)
         print("I am Batman")
         time.sleep(2)
         print(bat3)
@@ -71,7 +71,7 @@ def show_art(mode=None):
         print("I am Vengeance")
         time.sleep(2)
         print("I am the Night")
-        time.sleep(3)
+        time.sleep(2.1)
         print("I am Batman")
         time.sleep(2)
         print(bat3)
@@ -126,7 +126,7 @@ if __name__ == "__main__":
     # t2.join()
 
     # conc_outro(mode_bit=None)
-    # conc_outro(mode_bit=0)
+    conc_outro(mode_bit=0)
     # time.sleep(15)
 
 
