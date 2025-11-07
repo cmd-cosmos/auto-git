@@ -234,7 +234,8 @@ if MODE and CHANGES_FLAG:
                 "New feature implementation --> auto test commit.",
                 "Modified comments --> documentation changes.",
                 "File/Directory structure changes.",
-                sys_default_msg,
+                "Dependency modifications",
+                sys_default_msg
             ]
             n = len(msg_list)
             n_div = n // 2
