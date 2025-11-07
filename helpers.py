@@ -5,6 +5,8 @@ import time
 import sys
 import os
 import pyttsx3
+import threading
+import pygame
 from art import bat3
 
 def speak(lines):
@@ -71,18 +73,26 @@ def show_art(mode=None):
         time.sleep(1)
         sys.exit()
 
+def play_outro():
+    pygame.mixer.init()
+    pygame.mixer.music.load('batman_soundtrack.mp3')
+    pygame.mixer.music.play()
+
 if __name__ == "__main__":
     
     show_art(mode=1)
 
     # speak("hello there")
-    speak("prerequisite routines executed")
-    speak("Target directory set")
+    # speak("prerequisite routines executed")
+    # speak("Target directory set")
 
-    test_lines = ["I am Vengeance",
-                  "I am the Night",
-                  "I am Batman"]
-    for line in test_lines:
-        speak(line)
+    # test_lines = ["I am Vengeance",
+    #               "I am the Night",
+    #               "I am Batman"]
+    # for line in test_lines:
+    #     speak(line)
+
+    play_outro()
+    time.sleep(15)
 
 
