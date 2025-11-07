@@ -83,9 +83,12 @@ def play_outro():
     pygame.mixer.music.load('batman_soundtrack.mp3')
     pygame.mixer.music.play()
 
-def conc_outro():
+def conc_outro(mode_bit):
+    '''
+    concurrent show art and play outro sequence.
+    '''
     t1 = threading.Thread(target=play_outro, daemon=True)
-    t2 = threading.Thread(target=show_art)
+    t2 = threading.Thread(target=show_art, args=(mode_bit,))
     t2.start()
     time.sleep(2)
     t1.start()
@@ -93,7 +96,7 @@ def conc_outro():
 
 if __name__ == "__main__":
     
-    # show_art(mode=1)
+    show_art(mode=1)
 
     # speak("hello there")
     # speak("prerequisite routines executed")
@@ -114,7 +117,8 @@ if __name__ == "__main__":
 
     # t2.join()
 
-    conc_outro()
+    conc_outro(mode_bit=None)
+    conc_outro(mode_bit=0)
     # time.sleep(15)
 
 
