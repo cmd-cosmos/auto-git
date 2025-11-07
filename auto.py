@@ -182,31 +182,52 @@ if MODE and CHANGES_FLAG:
 
             clean_flag = input("would you like to completely clear screen[y/n]: ").lower().strip()
             if clean_flag == 'y':
+                # show_art(mode=0)
                 t1 = threading.Thread(target=play_outro, daemon=True)
-                t2 = threading.Thread(target=show_art)
+                t2 = threading.Thread(target=show_art, args=(0,))
 
-                t1.start()
                 t2.start()
+                time.sleep(2)
+                t1.start()
 
                 t2.join()
-                # show_art(mode=0)
 
             elif clean_flag == 'n':
                 art_flag = input("would you like to look at some cool art[y/n]: ").lower().strip()
                 if art_flag == 'y':
-                    show_art()
+                    t1 = threading.Thread(target=play_outro, daemon=True)
+                    t2 = threading.Thread(target=show_art)
+                    t2.start()
+                    time.sleep(2)
+                    t1.start()
+                    t2.join()
                 else:
-                    show_art()
+                    t1 = threading.Thread(target=play_outro, daemon=True)
+                    t2 = threading.Thread(target=show_art)
+                    t2.start()
+                    time.sleep(2)
+                    t1.start()
+                    t2.join()
             else:
                 os.system("cls")
                 print("Flag id error ---> showing art anyways...\n")
-                show_art()
+                t1 = threading.Thread(target=play_outro, daemon=True)
+                t2 = threading.Thread(target=show_art)
+                t2.start()
+                time.sleep(2)
+                t1.start()
+                t2.join()
 
         else:
             print("No remote found...")
             print("Exiting sequence without pushing to remote....")
             time.sleep(1)
-            show_art()
+            t1 = threading.Thread(target=play_outro, daemon=True)
+            t2 = threading.Thread(target=show_art)
+            t2.start()
+            time.sleep(2)
+            t1.start()
+            t2.join()
 
     def commit(add_mode):
         '''
