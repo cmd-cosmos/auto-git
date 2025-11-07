@@ -235,6 +235,7 @@ if MODE and CHANGES_FLAG:
                 "Modified comments --> documentation changes.",
                 "File/Directory structure changes.",
                 "Dependency modifications",
+                "Modified gitignore.",
                 sys_default_msg
             ]
             n = len(msg_list)
