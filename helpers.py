@@ -2,14 +2,21 @@
 #pylint: disable=C0303
 #pylint: disable=C0305
 #pylint: disable=C0411
+#pylint: disable=C0413
 
 import time
 import sys
 import os
 import pyttsx3
 import threading
-import pygame
+import contextlib
+import warnings
+warnings.filterwarnings('ignore', message="pkg_resources is deprecated")
+with contextlib.redirect_stdout(None):
+    import pygame
 from art import bat3
+
+
 
 def speak(lines):
     '''
@@ -117,8 +124,8 @@ if __name__ == "__main__":
 
     # t2.join()
 
-    conc_outro(mode_bit=None)
-    conc_outro(mode_bit=0)
+    # conc_outro(mode_bit=None)
+    # conc_outro(mode_bit=0)
     # time.sleep(15)
 
 
