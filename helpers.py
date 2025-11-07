@@ -11,7 +11,7 @@ import pyttsx3
 import threading
 import contextlib
 import warnings
-warnings.filterwarnings('ignore', message="pkg_resources is deprecated")
+warnings.filterwarnings('ignore')
 with contextlib.redirect_stdout(None):
     import pygame
 from art import bat3
