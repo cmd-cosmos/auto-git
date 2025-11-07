@@ -15,6 +15,7 @@ warnings.filterwarnings('ignore')
 with contextlib.redirect_stdout(None):
     import pygame
 from art import bat3
+from paths import outro_path
 
 
 
@@ -87,7 +88,7 @@ def play_outro():
     helper function to play outro clip
     '''
     pygame.mixer.init()
-    pygame.mixer.music.load('batman_soundtrack.mp3')
+    pygame.mixer.music.load(outro_path)
     pygame.mixer.music.play()
 
 def conc_outro(mode_bit):
