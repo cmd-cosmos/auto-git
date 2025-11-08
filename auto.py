@@ -49,10 +49,10 @@ else:
     print(f"target set: {target_path}")
 
 git_root = git_root_getter(target_path)
-print(f"git root established: {git_root}")
+print(f"git root established: {git_root}\n")
 os.chdir(git_root)
 
-print("-"*30, "Auto Git", "-"*30, '\n')
+print("*"*30, "Auto Git", "*"*30, '\n')
 
 CHANGES_FLAG = False
 
