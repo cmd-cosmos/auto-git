@@ -8,9 +8,13 @@
 # pylint: disable=global-statement
 # pylint: disable=C0303
 # pylint: disable=C0301
+# pylint: disable=C0325
 # pylint: disable=C0114
 # pylint: disable=C0116
 # pylint: disable=R1710
+# pylint: disable=W0311
+# pylint: disable=W0012
+# pylint: disable=W1510
 
 import time
 import os
@@ -112,13 +116,13 @@ def validate_and_status_check():
         time.sleep(1)
         print("No changes found ---> exiting sequence...\n")
         time.sleep(1)
-        sys.exit()
+        show_art()
 
 def modified_file_getter():
     '''
     get list of modified files after a git status check
     '''
-    change_check = subprocess.run(["git", "status", "--porcelain"],
+    change_check = subprocess.run(["git", "status", "--porcelain", "-uall"],
                                   capture_output=True, text=True, check=False)    
     file_tracker = change_check.stdout
 
@@ -138,15 +142,39 @@ def modified_file_getter():
     for i,mod_file in enumerate(splitter):
         print(f"{i} : {mod_file.rstrip()}")
     print()
+    add_q = []
+    flag = True
+    while flag:
+        file_inp = (input("Enter idx of file to stage(q to confirm): "))
 
-    file_inp = int(input("enter index of file to stage: "))
-    if file_inp in range(len(splitter)):
-        print(f"selecting: {splitter[file_inp]}")
-        os.system(f"git add {splitter[file_inp]}")
+        if file_inp.lower() == "q":
+            break
+        if not file_inp.isdigit():
+            print("Invalid input --> must be NUM or 'q'")
+            continue
+
+        file_inp = int(file_inp)
+        if file_inp in range(len(splitter)):
+                print(f"Selecting: {splitter[file_inp]}")
+                add_q.append(splitter[file_inp])
+                
+        else:
+            # later modify to loop unitl valid input or q to force terminate
+            print("Index out of range(TERMINATING)...")
+            flag=False
+            show_art()
+    
+    if add_q:
+        for item in add_q:
+            subprocess.run(["git", "add", item])
+            time.sleep(0.5)
+        print("\nstaging complete")
+        print("-"*70)
         commit(add_mode=2)
+    
     else:
-        print("index out of range...")
-        sys.exit()
+        print("\n\nNO FILES SELECTED --> TERMINATING")
+        show_art()
 
 validate_and_status_check()
 print("-"*70)
