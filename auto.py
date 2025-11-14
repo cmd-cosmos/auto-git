@@ -95,7 +95,7 @@ def validate_and_status_check():
 
     time.sleep(2)
     global STATUS #ignore : warning
-    STATUS = os.system("git status")
+    STATUS = os.system("git status -uall")
     print("-"*70)
     print("Status check return val: ", STATUS)
 
