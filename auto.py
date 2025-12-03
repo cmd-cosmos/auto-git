@@ -310,17 +310,14 @@ if MODE and CHANGES_FLAG:
             try:
                 msg_choice = int(input("\nEnter default message idx: "))
             except ValueError:
-                print("Index out of range ---> fallback to system default message\n")
                 time.sleep(2)
                 msg_choice = def_choice
 
-            if msg_choice < 0 or msg_choice >= n:
-                print("Invalid Index...\n")
-                time.sleep(2)
-                chosen_idx = def_choice
+            if 0 <= msg_choice < n:
+                msg_string = msg_list[msg_choice]
             else:
-                chosen_idx = msg_choice
-            msg_string = msg_list[chosen_idx]
+                print("Index out of range ---> fallback to system default message\n")
+                msg_string = sys_default_msg
             print(f"Commit Message String:\n==> {msg_string}")
 
         else:
