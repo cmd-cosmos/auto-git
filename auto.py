@@ -12,6 +12,7 @@
 # pylint: disable=C0114
 # pylint: disable=C0116
 # pylint: disable=R1710
+# pylint: disable=R1705
 # pylint: disable=W0311
 # pylint: disable=W0012
 # pylint: disable=W1510
@@ -138,7 +139,7 @@ def validate_and_status_check(mode=None):
             time.sleep(1)
             print("No changes found ---> exiting sequence...\n")
             time.sleep(1)
-            show_art()
+            conc_outro(mode_bit=None)
 
 def modified_file_getter():
     '''
