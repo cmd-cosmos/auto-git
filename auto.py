@@ -42,7 +42,7 @@ def git_root_getter(start=None):
         print("Not a git repo")
         print("Suspending routine.")
         time.sleep(3)
-        show_art()
+        conc_outro(mode_bit=None)
 
 if len(sys.argv) > 1:
     target_path = sys.argv[1]
@@ -117,7 +117,7 @@ def validate_and_status_check(mode=None):
             os.system("cls")
             print("NOT a git directory ---> terminating sequence")
             print("-"*70)
-            conc_outro(mode_bit=0)
+            conc_outro(mode_bit=None)
 
         time.sleep(2)
         global STATUS #ignore : warning
