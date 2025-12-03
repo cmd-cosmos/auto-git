@@ -117,7 +117,7 @@ def validate_and_status_check(mode=None):
             os.system("cls")
             print("NOT a git directory ---> terminating sequence")
             print("-"*70)
-            show_art()
+            conc_outro(mode_bit=0)
 
         time.sleep(2)
         global STATUS #ignore : warning
