@@ -312,13 +312,13 @@ if MODE and CHANGES_FLAG:
                 msg_choice = def_choice
 
             if msg_choice < 0 or msg_choice >= n:
-                print("Index out of range ---> fallback to system default message\n")
+                print("Invalid Index...\n")
                 time.sleep(2)
                 chosen_idx = def_choice
             else:
                 chosen_idx = msg_choice
             msg_string = msg_list[chosen_idx]
-            print(f"\nCommit Message String:\n==> {msg_string}")
+            print(f"Commit Message String:\n==> {msg_string}")
 
         else:
             print("Flag error --> fallback to default commit message")
