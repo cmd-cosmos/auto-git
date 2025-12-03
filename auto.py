@@ -78,45 +78,67 @@ def show_menu():
     print("*"*70)
     print()
     print("ALERT: invalid input will result in fallback to default routine.\n")
-    input("Enter op id: ")
+
+    try:
+        opchoice = int(input("Enter op id: "))
+    except ValueError:
+        print("Invalid input type. ---> Fallback to default routine...\n")
+        return
+    
+    if opchoice == 0:
+        return
+    elif opchoice == 1:
+        validate_and_status_check(mode=1)
+    else:
+        print(f"{opchoice} --> under construction ---> Fallback to default...\n")
+        return
 
 
-def validate_and_status_check():
+def validate_and_status_check(mode=None):
     '''
     validation sequence to ensure git repo exists before checking for repo status.
     '''
-    check = os.system("git rev-parse --git-dir")
-    print("git repo check returned: ",check)
+    if mode == 1:
+        print("*"*70)
+        print("Fetching Status\n")
+        os.system("git status --porcelain -uall")
+        print("*"*70)
+        print()
+        show_menu()
+    
+    elif mode is None:  
+        check = os.system("git rev-parse --git-dir")
+        print("git repo check returned: ",check)
 
-    if check == 0:
-        print(".git directory confirmed, proceeding with auto commit sequence.\n")
+        if check == 0:
+            print(".git directory confirmed, proceeding with auto commit sequence.\n")
+            print("-"*70)
+        else:
+            os.system("cls")
+            print("NOT a git directory ---> terminating sequence")
+            print("-"*70)
+            show_art()
+
+        time.sleep(2)
+        global STATUS #ignore : warning
+        STATUS = os.system("git status -uall")
         print("-"*70)
-    else:
-        os.system("cls")
-        print("NOT a git directory ---> terminating sequence")
-        print("-"*70)
-        show_art()
+        print("Status check return val: ", STATUS)
 
-    time.sleep(2)
-    global STATUS #ignore : warning
-    STATUS = os.system("git status -uall")
-    print("-"*70)
-    print("Status check return val: ", STATUS)
+        command = subprocess.run(["git", "status", "--porcelain"],
+                                      capture_output=True, text=True, check=False)   
 
-    command = subprocess.run(["git", "status", "--porcelain"],
-                                  capture_output=True, text=True, check=False)   
-
-    if bool(command.stdout.strip()) is True:
-        time.sleep(1)
-        print("Changes found.")
-        print("Proceeding with the auto track sequence.")
-        global CHANGES_FLAG
-        CHANGES_FLAG = not CHANGES_FLAG
-    else:
-        time.sleep(1)
-        print("No changes found ---> exiting sequence...\n")
-        time.sleep(1)
-        show_art()
+        if bool(command.stdout.strip()) is True:
+            time.sleep(1)
+            print("Changes found.")
+            print("Proceeding with the auto track sequence.")
+            global CHANGES_FLAG
+            CHANGES_FLAG = not CHANGES_FLAG
+        else:
+            time.sleep(1)
+            print("No changes found ---> exiting sequence...\n")
+            time.sleep(1)
+            show_art()
 
 def modified_file_getter():
     '''
@@ -176,6 +198,7 @@ def modified_file_getter():
         print("\n\nNO FILES SELECTED --> TERMINATING")
         show_art()
 
+show_menu()
 validate_and_status_check()
 print("-"*70)
 print(f"validation and status bit: {CHANGES_FLAG}") 
