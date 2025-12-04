@@ -26,6 +26,7 @@ import sys
 import subprocess
 from art import bat2
 from helpers import show_art, speak, conc_outro
+from push_routine import menu_push_routine
 
 os.system("cls")
 speak("prerequisite routines executed")
@@ -93,6 +94,11 @@ def show_menu():
         return
     elif opchoice == 1:
         validate_and_status_check(mode=1)
+    elif opchoice == 2:
+        print("*"*70)
+        menu_push_routine()
+        print("*"*70)
+        show_menu()
     else:
         print(f"{opchoice} --> under construction ---> Fallback to default...\n")
         return
