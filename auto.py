@@ -51,6 +51,8 @@ def git_root_getter(start=None):
 
 if len(sys.argv) > 1:
     target_path = sys.argv[1]
+    print()
+    print("*"*70,"\n")
     print(f"target set: {target_path}\n")
 else:
     target_path = os.getcwd()
@@ -97,7 +99,7 @@ def show_menu():
     elif opchoice == 5:
         print("-"*70)
         menu_push_routine()
-        print("-"*70, "\n")
+        print("*"*70, "\n")
         show_menu()
     else:
         print(f"{opchoice} --> under construction ---> Fallback to default...\n")
