@@ -108,6 +108,7 @@ def validate_and_status_check(mode=None):
         os.system("git status --porcelain -uall")
         print("*"*70)
         print()
+        os.system("cls")
         show_menu()
     
     elif mode is None:  
