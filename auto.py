@@ -94,6 +94,7 @@ def show_menu():
         return
     
     if opchoice == 0:
+        print("-"*70)
         return
     elif opchoice == 1:
         validate_and_status_check(mode=1)
