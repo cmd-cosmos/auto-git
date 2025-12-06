@@ -75,6 +75,7 @@ def show_menu():
         3 : "stage changes",
         4 : "commit changes",
         5 : "push changes",
+        6 : "Exit"
     }
     print("Auto Git Sequence Menu:\n")
     print("*"*70)
@@ -101,6 +102,12 @@ def show_menu():
         menu_push_routine()
         print("*"*70, "\n")
         show_menu()
+    elif opchoice == 6:
+        print("-" *70)
+        print("Exiting sequence.")
+        time.sleep(2)
+        os.system("cls")
+        sys.exit()
     else:
         print(f"{opchoice} --> under construction ---> Fallback to default...\n")
         return
