@@ -349,7 +349,7 @@ if MODE and CHANGES_FLAG:
         
         repeat_push_proc_flag = True
         while repeat_push_proc_flag:
-            push_conf = input("ready to push changes[y/n]: ").lower().strip()
+            push_conf = input("Ready to push changes[y/n]: ").lower().strip()
             if push_conf == "y":
                 check_remote_and_push()
                 repeat_push_proc_flag = False
