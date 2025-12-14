@@ -2,6 +2,8 @@
 
 # isolated testing env for functions being worked on.
 
+import requests
+
 def menu_test():
     op_dict = {
             0 : "default routine",
@@ -48,5 +50,15 @@ def menu_test():
         print(op_msgs[menu_selection])
         print("*"*70)
 
+def fetch_repo_list(username):
+    url = f"https://api.github.com/users/{username}/repos"
+    response = requests.get(url, timeout=5)
+    response.raise_for_status()
+    repos = response.json()
+    print(repos)
+    for repo in repos:
+        print(f"Repo: {repo["name"]:50} | Owner: {repo["owner"]["login"]}")
+
 if __name__ == "__main__":
-    menu_test()
+    # menu_test()
+    fetch_repo_list("cmd-cosmos")
