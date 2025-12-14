@@ -27,6 +27,7 @@ import subprocess
 from art import bat2
 from helpers import show_art, speak, conc_outro
 from menu_specific_helpers.push_routine import menu_push_routine
+from menu_specific_helpers.gh_repo_lister import fetch_repo_list
 
 os.system("cls")
 speak("prerequisite routines executed")
@@ -97,19 +98,35 @@ def show_menu():
     if opchoice == 0:
         print("-"*70)
         return
+    
     elif opchoice == 1:
         validate_and_status_check(mode=1)
+    
     elif opchoice == 5:
         print("-"*70)
         menu_push_routine()
         print("*"*70, "\n")
         show_menu()
+
     elif opchoice == 6:
+        print("-"*70)
+        username = input("Enter GitHub Username: ").strip()
+        print(f"Fetching repo list for user: {username}\n")
+        time.sleep(1)
+        fetch_repo_list(username=username)
+        time.sleep(1)
+        print()
+        print("*"*70)
+        print()
+        show_menu()
+
+    elif opchoice == 7:
         print("-" *70)
         print("Exiting sequence.")
         time.sleep(2)
         os.system("cls")
         sys.exit()
+
     else:
         print(f"{opchoice} --> under construction ---> Fallback to default...\n")
         return
