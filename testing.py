@@ -55,9 +55,9 @@ def fetch_repo_list(username):
     response = requests.get(url, timeout=5)
     response.raise_for_status()
     repos = response.json()
-    print(repos)
+    # print(repos)
     for repo in repos:
-        print(f"Repo: {repo["name"]:50} | Owner: {repo["owner"]["login"]}")
+        print(f"Repo: {repo["name"]:50} | Private: {repo["private"]}")
 
 if __name__ == "__main__":
     # menu_test()
