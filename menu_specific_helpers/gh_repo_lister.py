@@ -10,8 +10,14 @@ def fetch_repo_list(username):
     '''
     url = f"https://api.github.com/users/{username}/repos"
     response = requests.get(url, timeout=5)
-    response.raise_for_status()
-    repos = response.json()
-    # print(repos)
-    for repo in repos:
-        print(f"Repo: {repo["name"]:50} | Private: {repo["private"]}")
+    if response.status_code == 404:
+        print()
+        print("#### Invalid User")
+        print()
+        return
+    else:
+        repos = response.json()
+        # print(repos)
+        for repo in repos:
+            print(f"Repo: {repo["name"]:50} | Private: {repo["private"]}")
+
