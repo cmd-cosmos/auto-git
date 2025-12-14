@@ -75,7 +75,8 @@ def show_menu():
         3 : "stage changes",
         4 : "commit changes",
         5 : "push changes",
-        6 : "Exit"
+        6 : "list repos", # add script to access gh api and load repo list
+        7 : "exit",
     }
     print("Auto Git Sequence Menu:\n")
     print("*"*70)
