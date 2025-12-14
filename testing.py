@@ -53,12 +53,16 @@ def menu_test():
 def fetch_repo_list(username):
     url = f"https://api.github.com/users/{username}/repos"
     response = requests.get(url, timeout=5)
-    response.raise_for_status()
-    repos = response.json()
-    # print(repos)
-    for repo in repos:
-        print(f"Repo: {repo["name"]:50} | Private: {repo["private"]}")
+    if response.status_code == 404:
+        print("Invalid User")
+        return
+    else:
+        repos = response.json()
+        # print(repos)
+        for repo in repos:
+            print(f"Repo: {repo["name"]:50} | Private: {repo["private"]}")
 
 if __name__ == "__main__":
     # menu_test()
-    fetch_repo_list("cmd-cosmos")
+    username = input("Enter User Name: ").strip()
+    fetch_repo_list(username=username)
