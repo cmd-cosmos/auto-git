@@ -76,8 +76,9 @@ def show_menu():
         3 : "stage changes",
         4 : "commit changes",
         5 : "push changes",
-        6 : "list repos", # add script to access gh api and load repo list
-        7 : "exit",
+        6 : "list repos", 
+        7 : "today's stats", # add script to print stats for the day
+        8 : "exit",
     }
     print("Auto Git Sequence Menu:\n")
     print("*"*70)
@@ -120,7 +121,7 @@ def show_menu():
         print()
         show_menu()
 
-    elif opchoice == 7:
+    elif opchoice == 8:
         print("-" *70)
         print("Exiting sequence.")
         time.sleep(2)
