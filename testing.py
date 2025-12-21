@@ -1,8 +1,11 @@
 #pylint: skip-file
+#type: ignore
 
 # isolated testing env for functions being worked on.
 
 import requests
+import os
+from github import Github, Auth
 
 def menu_test():
     op_dict = {
@@ -64,5 +67,14 @@ def fetch_repo_list(username):
 
 if __name__ == "__main__":
     # menu_test()
-    username = input("Enter User Name: ").strip()
-    fetch_repo_list(username=username)
+    # username = input("Enter User Name: ").strip()
+    # fetch_repo_list(username=username)]
+
+    github_auth_token = os.getenv("GITHUB_TOKEN")
+    if not github_auth_token:
+        raise RuntimeError("GITHUB_TOKEN env var not set.")
+    auth = Auth.Token(github_auth_token)
+    g = Github(auth=auth)
+
+    for repo in g.get_user().get_repos():
+        print(f"-> {repo.name}")
